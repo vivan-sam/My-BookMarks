@@ -1,0 +1,150 @@
+<html>
+
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> BookMark Application </title>
+        <link rel="stylesheet" href="css/all.min.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/my-style.css" rel="stylesheet">
+    </head>
+    
+    <body>
+    
+        
+        <div class="container py-5 text-center">
+        
+            <h1 class="mb-5 font-weight-bold"> <span class="text-danger">My</span>BookMarks<span class="text-danger">.com</span></h1>
+            
+            <div>
+                <!-- Nav Of Pages  -->
+                <ul class="nav nav-tabs d-flex justify-content-center border-danger" id="myTab" role="tablist">
+                
+                    <li class="nav-item" onclick="home()">
+                        <a class="nav-link text-danger active tab1" id="logIn-tab" data-toggle="tab" href="#logIn" role="tab" aria-controls="logIn" aria-selected="true">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger tab2" id="signUp-tab" data-toggle="tab" href="#signUp" role="tab" aria-controls="signUp" aria-selected="false">Sign up</a>
+                    </li>
+                    
+                </ul>
+                <!-- Show Divs -->
+                <div class="tab-content" id="myTabContent">
+                    
+                    <!-- Div of Tab 1 -->
+                    <div class="tab-pane fade show py-lg-5 py-5 active" id="logIn" role="tabpanel" aria-labelledby="logIn-tab">
+                        
+                        <!-- Login Form -->
+                        <div id="login-form" class="">
+                            
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='userName-login' placeholder="User Name" type="text" required>
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='passWord-login' placeholder="Password" type="password" required>
+                        <button class="btn btn-danger w-50 m-auto" id="btn-login" onclick="Login()"> Log In </button>
+                            
+                        </div>
+                        
+                        <!-- BookMarks Page -->
+                        <div id="bookMarks" class=" text-white p-5 bg-danger text-center d-none ">
+                            
+                            <button class="btn btn-light w-50 mx-auto text-danger font-weight-bold my-1" id="btn-addB" onclick="add()"> Add New </button>
+                            
+                            <button class="btn btn-light w-50 mx-auto text-danger font-weight-bold my-1" id="btn-searchB" onclick="openSearch()"> Search</button>
+                            
+                            <!-- BookMarks -->
+                            <div class="row mt-3 border-white border py-1" id="bookMarksData">
+                                
+                                
+                                
+                            
+                            </div>
+                            
+                            <!--Add New BookMarks -->
+                            <div class=" mt-3 border-white border d-none" id="bookMarkAdd">
+                                
+                                <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='bmName' placeholder="Web Site Name" type="text" required>
+                                <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='bmUrl' placeholder="Web Site URL" type="text" required>
+                                <button class="btn btn-light w-25 mx-auto text-danger font-weight-bold mb-3 " id="btn-bmSave" onclick="save()"> Save </button>
+                                                                  
+                                
+                            
+                            </div>
+                                                        
+                            
+                            <!-- Search Delete BookMarks -->
+                            <div class=" mt-3 border-white border d-none" id="bookMarkSearch">
+                                
+                                <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='bmName' placeholder="Web Site Name" type="text" required>
+                                <button class="btn btn-light w-25 mx-auto text-danger font-weight-bold mb-3 " id="btn-bmSearch" onclick="search()"> Search </button>
+                                <div class="row mt-3" id="bookMarksDataSearch">
+                                
+                                
+                                
+                            
+                                </div>                          
+                            </div>
+                        
+                        </div>
+                        
+                            
+                    </div>
+                    <!-- Div Of Tab 2 -->
+                    <div class="tab-pane fade py-lg-3 py-3" id="signUp" role="tabpanel" aria-labelledby="signUp-tab">
+                        
+                        <!-- Sign Up Form -->
+                        <div id="signUp-form" class="">
+                            
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='name-signup' placeholder="Name" type="text">
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='age-signup' placeholder="Age" type="number">
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='location-signup' placeholder="country" type="text">
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='userName-signup' placeholder="User Name" type="text">
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='passWord-signup' placeholder="Password" type="password">
+                        <input class="form-control w-75 my-3 my-lg-3 mx-auto text-center text-danger" id='passWord-signup2' placeholder="Confirm-Password" type="password">
+                        <button class="btn btn-danger w-50 m-auto" id="btn-signUp" onclick=""> Sign Up </button>
+                            
+                        </div>
+                        
+                        <div id="userProfile" class="d-none text-white p-5 bg-danger text-center">
+                            
+                            <h3 class="border border-white bg-white text-danger rounded p-1"> Name  </h3>
+                                <h4 class="mb-3 pName"> </h4>
+                            <h3 class="border border-white bg-white text-danger rounded p-1"> UserName  </h3>
+                                <h4 class="mb-3 pUser"> </h4>
+                            <h3 class="border border-white bg-white text-danger rounded p-1"> Age  </h3>
+                                <h4 class="mb-3 pAge"> </h4>
+                            <h3 class="border border-white bg-white text-danger rounded p-1"> Country  </h3>
+                                <h4 class="mb-3 pLocation"> </h4>
+                            <button class="btn btn-light w-50 m-auto text-danger font-weight-bold" id="btn-logOut" onclick="logout()"> Log Out </button>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            
+        
+            
+                
+            
+            </div>
+            
+            
+        
+        
+        </div>
+        
+        
+        
+        
+        
+        
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/mine.js"></script>
+    </body>
+
+
+
+
+</html>

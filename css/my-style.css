@@ -1,0 +1,6 @@
+/* To Change Color OF Form Box Shadow */
+
+.form-control:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem #dc3545;
+    } 
